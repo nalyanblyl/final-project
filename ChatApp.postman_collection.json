@@ -1,0 +1,698 @@
+{
+	"info": {
+		"_postman_id": "10a5ac97-59d7-42ee-9f0d-16c29e2999a6",
+		"name": "ChatApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39658272"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Test\",\r\n  \"email\": \"test@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list all users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update users",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/users/10?newUsername=updatedTest&newEmail=test@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"users",
+						"10"
+					],
+					"query": [
+						{
+							"key": "newUsername",
+							"value": "updatedTest"
+						},
+						{
+							"key": "newEmail",
+							"value": "test@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add friend",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/users/1/addFriend/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"addFriend",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get list of friends",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/users/1/friends",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"friends"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove from friends list",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/users/1/removeFriend/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"removeFriend",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create channel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"channelName\": \"Test channel\",\r\n    \"ownerId\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/channels/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"channels",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list all channels for a specific user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"user1\",\r\n  \"email\": \"user1@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/channels/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"channels",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add user channel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/channels/11/addUser?userId=1&role=GUEST",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"channels",
+						"11",
+						"addUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "role",
+							"value": "GUEST"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user nickname or role in channel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/channels/11/updateUser?requesterId=10&userId=1&newNickname=Johnnn&newRole=GUEST",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"channels",
+						"11",
+						"updateUser"
+					],
+					"query": [
+						{
+							"key": "requesterId",
+							"value": "10"
+						},
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "newNickname",
+							"value": "Johnnn"
+						},
+						{
+							"key": "newRole",
+							"value": "GUEST"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users in channel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4154/api/channels/11/participants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"channels",
+						"11",
+						"participants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update channel name",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"user1\",\r\n  \"email\": \"user1@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/channels/11/updateName?requesterId=10&newName=updatedNameChannel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"channels",
+						"11",
+						"updateName"
+					],
+					"query": [
+						{
+							"key": "requesterId",
+							"value": "10"
+						},
+						{
+							"key": "newName",
+							"value": "updatedNameChannel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send message in channel",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"senderId\": 1,\r\n    \"channelId\": 11,\r\n    \"content\": \"John is here :))\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/messages/channel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"messages",
+						"channel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show all messages in channel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"channelId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/messages/channel/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"messages",
+						"channel",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send private mesages",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"senderId\": 10,\r\n    \"recipientId\": 1,\r\n    \"content\": \"Hi my friend\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/messages/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"messages",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show private mesages",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"senderId\": 1,\r\n    \"recipientId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/messages/private?senderId=10&recipientId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"messages",
+						"private"
+					],
+					"query": [
+						{
+							"key": "senderId",
+							"value": "10"
+						},
+						{
+							"key": "recipientId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove user from channel",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"senderId\": 1,\r\n    \"recipientId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/channels/5/removeUser?requesterId=1&targetUserId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"channels",
+						"5",
+						"removeUser"
+					],
+					"query": [
+						{
+							"key": "requesterId",
+							"value": "1"
+						},
+						{
+							"key": "targetUserId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete channel",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"senderId\": 1,\r\n    \"recipientId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4154/api/channels/9/delete?requesterId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4154",
+					"path": [
+						"api",
+						"channels",
+						"9",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "requesterId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
