@@ -1,0 +1,46 @@
+::ng-deep app-chat-window {
+    width: 100%;
+    height: 100%;
+}
+.channel{
+    width: 95%;
+    padding: 15px;
+    display: flex;
+    float: left;
+}
+.chat-window {
+    border: 2px solid #ff9800;
+    border-radius: 10px;
+    padding: 15px;
+    width: 70%;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    max-height: 350px;
+}
+.messages p {
+    background: #ffe0b2;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.message-form textarea{ 
+    width: 99%;
+}
+.message-form button{ 
+    background-color: rgb(255, 152, 0);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+}

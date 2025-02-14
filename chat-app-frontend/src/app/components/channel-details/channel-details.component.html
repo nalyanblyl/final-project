@@ -1,0 +1,51 @@
+
+
+<div *ngIf="isOwnerOrAdmin" [ngStyle]="editForm">
+  <h3 [ngStyle]="{'color': headerColor}">Edit Channel</h3>
+  <input type="text" [(ngModel)]="updatedChannelName" placeholder="New Channel Name" [ngStyle]="inputStyle">
+  <button (click)="updateChannelName()" [ngStyle]="buttonStyle">Update</button>
+</div>
+
+<div *ngIf="isOwnerOrAdmin" class="delete-section" [ngStyle]="{'margin-top': '20px'}">
+  <button (click)="deleteChannel()" [ngStyle]="deleteButtonStyle">Delete Channel</button>
+</div>
+<h3 [ngStyle]="{'color': headerColor, 'text-align': 'center'}">Participants in Channel</h3>
+
+<ul>
+  <li *ngFor="let participant of participants" [ngStyle]="{'background-color': participantBgColor, 'padding': '10px', 'margin': '5px 0', 'border-radius': '5px'}">
+    <div *ngIf="editingParticipantId !== participant.userId">
+      {{ participant.nickname }} /
+      <strong>Role:</strong> {{ participant.role }}
+      
+      <div *ngIf="isOwnerOrAdmin" [ngStyle]="{'margin-top': '10px'}">
+        <button (click)="editParticipant(participant)" [ngStyle]="buttonStyle">Edit</button>
+        <button (click)="removeUser(participant)" [ngStyle]="buttonStyle">Remove</button>
+      </div>
+    </div>
+
+    <div *ngIf="editingParticipantId === participant.userId">
+      <div [ngStyle]="{'margin-bottom': '10px'}">
+        <strong>Nickname:</strong>
+        <input [(ngModel)]="editedNickname" placeholder="Edit nickname" [ngStyle]="inputStyle">
+      </div>
+
+      <div [ngStyle]="{'margin-bottom': '10px'}">
+        <strong>Role:</strong>
+        <label>
+          <input type="radio" [(ngModel)]="editedRole" value="OWNER"> Owner
+        </label>
+        <label>
+          <input type="radio" [(ngModel)]="editedRole" value="ADMIN"> Admin
+        </label>
+        <label>
+          <input type="radio" [(ngModel)]="editedRole" value="GUEST"> Guest
+        </label>
+      </div>
+
+      <button (click)="saveUserChanges(participant)" [ngStyle]="buttonStyle">Save</button>
+      <button (click)="cancelEditing()" [ngStyle]="buttonStyle">Cancel</button>
+    </div>
+  </li>
+</ul>
+
+

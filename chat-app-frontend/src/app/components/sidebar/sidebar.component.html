@@ -1,0 +1,59 @@
+
+<h2 [ngStyle]="{'color': headerColor, 'text-align': 'right', 'margin-bottom': '20px'}">Channels</h2>
+<ul [ngStyle]="listStyle">
+  <li *ngFor="let channel of channels" [ngStyle]="listItemStyle">
+    <a [routerLink]="['/api', 'channel', channel.id]" [ngStyle]="linkStyle">{{ channel.name }}</a>
+  </li>
+</ul>
+<div [ngStyle]="newChannel">
+  <h3 [ngStyle]="{'color': sectionHeaderColor}">Create new Channel</h3>
+  
+  <input type="text" [(ngModel)]="newChannelName" placeholder="Enter channel name" [ngStyle]="inputStyle">
+  <button (click)="createNewChannel()" [ngStyle]="buttonStyle">Create</button>
+  </div>
+<h3 [ngStyle]="{'color': sectionHeaderColor, 'margin-top': '30px'}">Friends List</h3>
+
+<ul [ngStyle]="listStyle">
+  <li *ngFor="let friend of friends" [ngStyle]="listItemStyle">
+    <a [routerLink]="['/api', 'friend', friend.id]" [ngStyle]="linkStyle">
+      <strong>{{ friend.username }}</strong>
+    </a>
+    <button (click)="removeFriend(friend)" [ngStyle]="buttonStyle">X</button>
+    <button (click)="showAvailableChannelsForUser(friend.id)" [ngStyle]="buttonStyle">+</button>
+
+    <div *ngIf="selectedFriendId === friend.id" [ngStyle]="channelListStyle">
+      <h4 [ngStyle]="{'color': sectionHeaderColor}">Channels available for adding {{ friend.username }}:</h4>
+      <ul [ngStyle]="listStyle">
+        <li *ngFor="let channel of availableChannels" [ngStyle]="listItemStyle">
+          {{ channel.name }}
+          <button (click)="addUserToChannel(channel.id, friend.id)" [ngStyle]="buttonStyle">Add</button>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+
+<h3 [ngStyle]="{'color': sectionHeaderColor}">Users</h3>
+
+<ul [ngStyle]="listStyle">
+  <li *ngFor="let user of users" [ngStyle]="listItemStyle">
+    <a [routerLink]="['/api', 'friend', user.id]" [ngStyle]="linkStyle">
+      <strong>{{ user.username }}</strong>
+    </a> ({{ user.email }})
+
+    <div *ngIf="!isFriend(user.id)">
+      <button (click)="addFriend(user)" [ngStyle]="buttonStyle">Add as Friend</button>
+    </div>
+    <button (click)="showAvailableChannelsForUser(user.id)" [ngStyle]="buttonStyle">+</button>
+
+    <div *ngIf="selectedFriendId === user.id" [ngStyle]="channelListStyle">
+      <h4 [ngStyle]="{'color': sectionHeaderColor}">Channels available for adding {{ user.username }}:</h4>
+      <ul [ngStyle]="listStyle">
+        <li *ngFor="let channel of availableChannels" [ngStyle]="listItemStyle">
+          {{ channel.name }}
+          <button (click)="addUserToChannel(channel.id, user.id)" [ngStyle]="buttonStyle">Add to Channel</button>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>

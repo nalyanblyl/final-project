@@ -1,0 +1,15 @@
+
+<div class="channel">
+  <div class="chat-window">
+  <div class="messages">
+    <div *ngFor="let message of messages">
+      <p><strong>{{ message.senderNickname }}:</strong> {{ message.content }}</p>
+    </div>
+  </div>
+  <div class="message-form">
+    <textarea [(ngModel)]="newMessage" placeholder="Type your message..."></textarea>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
+<app-channel-details></app-channel-details>
+</div>
